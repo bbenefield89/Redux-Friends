@@ -42,4 +42,11 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, { getFriends, getFriend })(GetFriends);
+const mapDispatchToProps = dispatch => {
+  return {
+    getFriends: () => dispatch(getFriends()),
+    getFriend: id => dispatch(getFriend(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetFriends);
